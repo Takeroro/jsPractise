@@ -84,7 +84,7 @@ var dic = {'a':3,'b':4,'c':5};
 // for循环等语句块中是无法定义具有局部作用域的变量的,得用let修饰才能限定其作用域，坑。
 console.log('遍历dic:');
 for (let key in dic) {
-    console.log(+dic[key]);
+    console.log(dic[key]);
 }
 // console.log('这儿的key如何: '+key);
 
@@ -94,6 +94,7 @@ var abs = function (a,b){
 };
 
 abs('123');
+
 //高阶函数
 function dickFun(x,y,f) {
     return f(x)+f(y);
@@ -102,3 +103,58 @@ var x = -5, y = 7 ;
 
 var result = dickFun(x,y,Math.abs);
 console.log(result);
+
+//闭包
+function initTimer(initial)
+{
+    var x = initial || 0;
+    return { 
+       tick: function (){
+        x += 1;
+        return x;
+        }
+    }
+}
+
+var c1 = initTimer(0);
+c1.tick();
+c1.tick();
+console.log(c1.tick());
+
+//正则 ()用来分组的···
+var re = /^(\d{3})\-(\d{3,8})$/;
+re.exec('010-12345'); // ['010-12345', '010', '12345']
+
+  //\s =》空格 \s+ => 1个或多个空格
+'a b   c'.split(/\s+/); // ['a', 'b', 'c']
+
+//json
+var xiaojuan = {
+    name : '小娟',
+    age : 17
+}
+
+var xiaoming = {
+    name : 'dick',
+    age : 19,
+    wife : xiaojuan
+};
+
+JSON.stringify(xiaoming);
+
+var jsonStr = "{\"adverTime\":2000,\"iosVersion\":\"2.12.0\",\"androidVersion\":\"3.10.0\",\"jumpType\":\"channel\",\"color\":\"#9594eb\",\"sid\":3045,\"ssid\":3045}";
+var jsonObj = JSON.parse(jsonStr);
+
+//构造方法 new 
+function Student(name) {
+    this.name = name;
+    this.hello = function () {
+        console.log('Hello, ' + this.name + '!');
+    }
+}
+
+var dickHead = new Student("dickHead");
+var dick = Student('dick');
+
+dickHead.hello();
+// dick.hello();``
