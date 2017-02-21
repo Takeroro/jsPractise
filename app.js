@@ -157,4 +157,4 @@ var dickHead = new Student("dickHead");
 var dick = Student('dick');
 
 dickHead.hello();
-// dick.hello();
+// dick.hello()
