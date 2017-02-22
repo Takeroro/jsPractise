@@ -172,8 +172,8 @@ function tick(input) {
 function tark(input) {
     return new Promise(function (resolve, reject){
         setTimeout(function() {
-            resolve(input);
-            console.log(input+' tark');
+            resolve(input + 'tark');
+            console.log(input +' tark');
         }, 1000);
     });
 }
@@ -183,6 +183,6 @@ var p = new Promise(function (resolve, reject){
     resolve('tick');
 });
 
-p.then(tick).then(tark);
+p.then(tick).then(tark).then(tark).then(tick);
 
 
