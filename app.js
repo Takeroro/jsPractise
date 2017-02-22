@@ -158,3 +158,31 @@ var dick = Student('dick');
 
 dickHead.hello();
 // dick.hello();``
+
+//promise
+function tick(input) {
+     return new Promise(function (resolve, reject){
+        setTimeout(function() {
+            resolve(input);
+            console.log(input);
+        }, 1000);
+    });
+}
+
+function tark(input) {
+    return new Promise(function (resolve, reject){
+        setTimeout(function() {
+            resolve(input);
+            console.log(input+' tark');
+        }, 1000);
+    });
+}
+
+var p = new Promise(function (resolve, reject){
+    console.log('promise starts');
+    resolve('tick');
+});
+
+p.then(tick).then(tark);
+
+
