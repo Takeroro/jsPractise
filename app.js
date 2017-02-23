@@ -157,6 +157,7 @@ var dickHead = new Student("dickHead");
 var dick = Student('dick');
 
 dickHead.hello();
+
 // dick.hello();``
 
 //promise
@@ -185,4 +186,7 @@ var p = new Promise(function (resolve, reject){
 
 p.then(tick).then(tark).then(tark).then(tick);
 
+
+
+// dick.hello()
 
