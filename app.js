@@ -212,3 +212,6 @@ Promise.race([p1, p2]).then(function(result){
 });
 
 module.exports = Student;
+
+var helloDick  = require('./Hello');
+helloDick('caotingjun');
