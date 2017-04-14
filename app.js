@@ -179,14 +179,36 @@ function tark(input) {
     });
 }
 
+function caca(input) {
+    return new Promise(function(resolve, reject){
+        resolve('1');
+        console.log(input)
+    });
+}
+
 var p = new Promise(function (resolve, reject){
     console.log('promise starts');
     resolve('tick');
 });
 
-p.then(tick).then(tark).then(tark).then(tick);
 
+p.then(tick).then(tark).then(tark).then(caca).then(tick).then(function (input){
+    console.log('final result '+ input);
+});
 
+//promise race 
+var p1 = new Promise(function(resolve, reject){
+    setTimeout(resolve, 300, 'p1');
+});
 
-// dick.hello()
+var p2 = new Promise(function(resolve, reject){
+    setTimeout(resolve,400,'p2');
+});
 
+Promise.race([p1, p2]).then(function(result){
+    console.log(reslut);
+}).catch(function(result){
+    console.log('failed? '+result);
+});
+
+module.exports = Student;
