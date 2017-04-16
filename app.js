@@ -215,3 +215,39 @@ module.exports = Student;
 
 var helloDick  = require('./Hello');
 helloDick('caotingjun');
+
+var fs = require('fs');
+fs.readFile('README.md',function(error,data){
+    if(error) {
+        console.log(error);
+    }else {
+        console.log("file = "+data);
+        console.log("file.legnth = "+data.length)
+    }
+});
+
+// var data = "test to write a file";
+// fs.writeFile("testAfile",data,function(error){
+//     if(error){
+//         console.log('write a file failed'+error);
+//     }
+//     console.log('write succeeded');
+// });
+
+var fs = require('fs');
+
+// 打开一个流:
+var rs = fs.createReadStream('README.md', 'utf-8');
+
+rs.on('data', function (chunk) {
+    console.log('DATA:')
+    console.log(chunk);
+});
+
+rs.on('end', function () {
+    console.log('END');
+});
+
+rs.on('error', function (err) {
+    console.log('ERROR: ' + err);
+});
